@@ -1,0 +1,938 @@
+header{
+    background-image: url('assets/back1.jpg');
+    height: 470px;
+    width:100%;
+    background-repeat: no-repeat;/*Δεν επιτρέπουμε στην φωτογραφία εξωφύλλου να επαναληφθεί ώστε να καλύψει όλο το header*/
+    background-size: cover;
+    margin:0;
+    padding:0;
+}
+body{
+    background-color: #daeaf1;
+    width:100%;
+    margin:0;
+    min-height: 100%;
+    font-family: sans-serif;
+
+}
+.header-content {
+    display: flex;
+    justify-content:right;
+    align-items: center;
+    margin-right: 30px;
+    padding-top: 10px;
+  }
+.search-bar {
+    display: flex;
+    align-items: center;
+}
+#searchInput {
+    padding: 8px;
+    margin-right: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+  
+#searchButton {
+    padding: 8px 15px;
+    background-color: #4caf50; /* Green color for search button */
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+  
+#searchButton:hover {
+    background-color: #45a049;
+}
+.user-status{
+    margin-right: 10px;
+  }
+
+  
+  .user-status span {
+    padding: 8px 15px;
+    cursor: pointer;
+    
+    font-size: 18px;
+  }
+  .user-status a{
+    text-decoration: none;
+    color:white;
+  }
+  .user-status a:hover{
+    text-decoration: underline;
+  }
+  
+  #signOutLabel {
+    border: 2px solid white;
+    border-radius:10px;
+  }
+
+
+/*...............................MENU STYLES............................*/
+
+#menu {
+    background-color: rgb(135, 181, 191 , 0.7);
+    height: 70px;
+    width:100%;
+    bottom: 280px;/*ορίζουμε τγν απόσταση απο το τέλος του header*/
+    margin:0;
+    position:absolute;
+    align-items: center;/*τοποθετεί το logo και το ul στο κέντρο*/
+    display:flex;
+
+}
+.main-menu{
+    list-style: none; /*αφαιρούμε τις κουκίδες*/
+    display:flex; /*τοποθετεί την λίστα σε horizontal στυλ*/
+    text-align: center;
+    margin-left:100px;/*ορίζουμε την απόσταση από τα αριστερά από όπου θα ξεκινάει το μενού*/
+}
+.main-menu li{
+    width:max-content;
+    margin-right: 100px;/*ορίζουμε απόσταση ανάμεσα στα li*/
+    margin-top: 35px;/*Εχει ως αποτελεσμα την τοποθετηση των li στο κέντρο κατα τον άξονα y*/
+}
+.main-menu li a{
+    color:white;/*αλλαγή του χρώματος text*/
+    text-decoration: none; /*αφαιρούμε τις γραμμές του link*/
+    font-size: larger;
+    font-family:Georgia, 'Times New Roman', Times, serif ;
+    font-weight: bold;
+    padding: 25px 30px 20px ;/*δημιουργούμε ένα εικονικό πλαίσιο γύρω από κάθε περιεχόμενο li*/
+}
+.main-menu li a:hover  {
+    background-color:rgba(194, 194, 192, 0.936);
+    transition: background-color 0.1s, color 0.3s, box-shadow 0.1s;/*χρωματίζουμε με ένα ημιδιάφανο χρώμα το εικονικό μας πλαίσιο*/
+}
+.main-menu img{
+    /*ρυθμίζουμε τις διαστάσεις του logo που βρίσκεται στο menu bar*/
+    height:90px; 
+    width:150px; 
+    display:flexbox;
+    margin-right:60px;/*για να δημιουργηθεί μεγαλύτερη απόσταση μεταξύ logo και About US*/
+}
+/*προσθετα styles για τις δευτερευων μενου που προσθέσαμε σε αυτή την φάση*/
+.hidden_logo{
+    display:none; /*αυτη η φωτογραφια θελουμε να εμγανίζεται μονο σε μικρότερες οθόνες*/
+}
+#toggle{
+    display:none;
+}
+#menu label{
+    display:none;
+}
+
+/*......................................INDEX STYLES ..............................................*/
+.image-container {
+    /*τοποθετούμε τα στοιχεία του στην ίδια σειρά έχοντας σταθερό κενό ανάμεσα ίσο με 20px. Κάθε στοιχείο καταλαμβάνει 1 frame.*/
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin:60px;/*τα στοιχεια τοποθετούνται πιο χαμηλά και επικρατεί κενό μεταξύ αυτών και του header*/
+    
+}
+.image-container .image-wrapper img {
+    /*ορίζουμε το μέγεθος και ένα πλαίσιο με κυκλικές γωνίες για κάθε φωτογραφία*/
+    width: 300px;
+    height:250px; 
+    border: 2px solid #333;
+    border-radius: 8px; /*κυκλικές γωνίες*/
+}
+.image-container .image-wrapper .button {
+    opacity:0; /*το button θα εμφανίζεται μόνο όταν ο κέρσορας θα βρίσκεται πάνω στη φωτογραφία*/
+    text-decoration: none;
+    background-color: rgba(51, 51, 51, 0.9);
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor:pointer; /*ορίζουμε το είδος κέρσορα*/  
+    text-align: center;/*το κείμενο τοποθετειται στο κέντρο του button*/
+    /*τοποθετούμε το κουμπί στο κέντρο κάθε εικόνας*/
+    position:relative;
+    bottom: 50%; 
+    left:33%;
+    
+}
+.image-container .image-wrapper:hover .button {
+    opacity:1; 
+    background-color: #a30c0c;
+}
+#banner{
+    background-color: rgb(7, 100, 105) ;
+    padding:1%;  
+    display:flex;
+    justify-content: center; /*τοποθετεί τα στοιχεία μας στο κέντρο κατα μήκος του άξονα χ*/
+}
+#banner img{
+    width:100px;
+    height:80px;
+}
+#banner h3{
+    font-size:30px;
+    color:white;
+    text-shadow: 3px 3px 3px rgb(3, 3, 3);/*δημιουργούμε σκίαση στην γραμματοειρά*/
+}
+.row-container {
+    display: flex;/*τοποθετεί τα στοιχεια στην ίδια σειρά*/
+    margin: 20px; 
+    margin-bottom: 50px;
+   
+}
+
+.img-video {
+    width: 48%; 
+    margin: 1%; 
+    box-sizing: border-box; 
+}
+.img-video img,
+.img-video iframe {
+    width: 100%; /*βιντεο/εικόνα θα καλύπτουν το μέγεθος που ορίσαμε παραπάνω*/
+    border: 2px solid #333; 
+    border-radius: 8px; 
+}
+.img-video h3 {
+    margin-bottom: 10px; /*δημιουργούμε μικρότερο κενό μεταξύ επικεφαλλίδας και εικόνας/βίντεο*/
+}
+
+/*.................................CATEGORIES STYLES.............................*/
+#categories {
+    background-color:rgb(255, 255, 255 , 0.5) ;
+    padding-left: 20px;/*απόσταση περιεχομένου από αριστερά*/
+    margin-right:5%;/*δημιουργία της λωρίδας που φαίνεται το χρώμα του body στα δεξια*/
+    margin-left:5%; /*δημιουργία της λωρίδας που φαίνεται το χρώμα του body στα αριστερά*/
+    padding-bottom: 100px;/*απόσταση περιεχομένου από κάτω*/
+    padding-top: 2%;/*απόσταση περιεχομένου από πάνω*/
+    display:grid;
+    grid-template-columns: repeat(auto-fill, minmax(25em, auto));/*γεμίζει κατα στήλες όσα στοιχεία τύπου category μπορούν να χωρεσουν και κάθε στοιχείο πιάνει 25em*/
+    column-gap: 1em;/*μεγαλώσαμε σταθερά το κενό μεταξύ των στηλών*/
+    row-gap: 2em;/*μεγαλώσαμε το κενό σταθερά μεταξύ των γραμμών που δημιουργήθηκαν*/
+}
+.category {
+    margin: 10px;/*΄καθε κατηγορία έχει απόσταση 10Px από τα αριστερά της*/
+    padding: 20px; /* το περιεχόμενο κάθε κατηγορίας  έχει απόσταση από τα ΄σύνορα΄ από τα αριστερά*/
+    border-radius: 20px;
+    background-color: #f7f7f7;
+
+}
+.category li {
+    line-height: 25px;/*ορίζουμε ύψος μεταξύ των σειρών/li*/
+    font-size: 20px;
+}
+.category ul{
+    list-style: none;/*αφαιρούμε τα bullets*/
+}
+ 
+.category li a{
+    text-decoration: none;
+    color:#00070b
+    
+}
+.category li a:hover{
+    color:rgb(226, 15, 51);
+    text-shadow: 2px 2px 4px rgba(206, 121, 121, 0.929);/*έχει ως αποτέλεσμα την δημιουργία σκίας γύρω από το χρώμα κόκκινο*/ 
+ 
+}
+/*..................................ABOUT US STYLES...................................*/
+#aboutUs{
+    padding: 20px 20px 20px 20px;/*ορίζουμε τις αποστάσεις του περιεχομένου σε όλες τις διαστάσεις από τις άκρες*/
+    margin: 70px 40px 70px 40px;/*οριζουμε την απόσταση του ΄χρωματιστού΄ πλαισίου από το header , footer , αριστερά ,δεξια*/
+    background-color: rgb(9, 81, 78 , 0.4);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);/*δημιουργείται σκία γύρω από το χρματιστό πλαίσιο εκτός από την πάνω πλευρά*/
+    border-radius: 35px;    
+}
+#aboutUs  p{
+    font-size: 20px;/*μέγεθος γραμματοσειράς των παραγράφων στο section aboutUs*/
+    line-height: 1.5;/*απόσταση κάθε γραμμής μεταξύ τους*/
+    text-align: justify;/*φτιάχνει ομοιόμορφες παραγράφους χωρίς εξοχές*/
+}
+#aboutUs h1{
+    font-size: 40px; /*μεγαλ'ωνουμε την επικεφαλίδα για περισσότερη έμφαση*/
+}
+#aboutUs h2{
+    margin-top:100px;/*δημιουργείται κενό μεταξύ επικεφαλίδας και κειμένου*/
+    font-size: 30px;
+    
+}
+.text{
+    margin-left: 10px;/*αυτό έχειως αποτέλεσμα το όνομα(h3)να τοποθετηθεί πάνω από την παραγραφο*/
+}
+.member{
+    margin-top:40px ;
+    background-color: rgb(255, 255, 255 , 0.5);
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    display:inline-flex; /*τοποθετεί τα στοιχεία στην ίδια ευθεία*/
+   
+}
+.member img{
+   /* height:200px;
+    width:200px;
+    /*δημιουργούμε το κυκλικό εφέ των φωτογραφιών*/
+    border: 1px solid white;
+    border-radius: 40%;
+    height:20%;
+    width:20%;
+    
+}
+.member h3{
+    font-size:24px;
+    color: #333;
+    margin:0; /*μικραίνουμε την απόσταση μεταξύ της επικεφαλίδας και του άνω συνόρου*/
+}
+/*.................................HOME SALES STYLES.................................*/
+#homes-sales{
+    margin-top:6%;
+    margin-left:4%;
+    margin-bottom:100px;  
+    
+}
+.grid-container{
+    /*Τοποθετούμε ομοιόμορφα με κενό ανά γραμμή κάθε property/job.Φτιάξαμε αυτή την ψευδοκλάση για να μην προσμετρηθει στο grid και το heading που έχουμε στο section */
+    display:grid;
+    grid-template-rows: repeat(auto-fit, minmax(200px, 1fr));
+    row-gap: 80px;
+}
+#homes-sales h2{
+    font-size:30px;
+    color:#333;
+}
+.property {
+    border: 5px solid white;
+    border-radius: 5px;
+    padding: 20px;
+    background-color: rgb(210, 230, 230 , 0.8);
+    max-width: max-content; /*μέγεθος ενιαίο όσο και το περιεχόμενο που ρθυμίζεται απο το ισο πλήθος{3) των ίσων εικόνων*/
+    }
+.property img {
+    /*ορίζουμε ενιαίο μέγεθος για κάθε εικόνα που αφορά ένα property*/
+    width:400px;
+    height:300px;
+  
+
+}
+.property h1 a {
+    font-size: 22px;
+    color: #333;
+    text-decoration: none;
+}
+
+.property h1 a:hover {
+    text-decoration: underline; /*όταν ο κέρσορας βρίσκεται πάνω από το link h1 θα υπογραμμίζεται*/
+}
+.property ul {
+    list-style: none;
+    padding: 0;
+    
+}
+
+.property li {
+    margin: 5px 0;
+    align-items: center;
+    display:flex;
+}
+
+.property li img {
+    margin-right: 5px; /*δημιουργούμε ένα μικρό κενό μεταξύ των logo και του κειμένου που τα ακολουθεί(x1,1974 etc)*/
+    max-height: 16px;
+    max-width: fit-content;/*προσαρμόζει το πλάτος*/
+}
+
+/*.............................GASTRONOMY STYLES .....................................*/
+#gastronomy{
+    margin-top:5%;
+    margin-bottom:80px;
+   
+}
+#gastronomy h2{
+    color:#033643;
+    font-size:32px;
+}
+/*.job-container{
+    /*φτιαξαμε αυτή την ψευδοκλάση για να τοποθετηθουν φωτογραφία και bullets στην ίδια σειρά*
+    display: flex;    
+}*/
+.job{
+    border: 1px solid #ccc;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 5px;   
+}
+.job a{
+    font-size: 30px;
+    color:#033643;
+    text-decoration: none;
+}
+.job a:hover{
+    text-shadow: 2px 2px 4px rgba(16, 16, 16, 0.5);
+}
+
+.job h3{
+    font-size: 20px;
+    margin: 0;
+}
+.job .title{
+    font-size: 25px;
+}
+
+.job img{
+    margin-top: 20px;
+    width:300px;
+    height:180px;
+    border-radius: 5px;
+    float:left;
+}
+.job ul{
+    list-style:circle;
+    margin-left:300px;/*ή job-container ή αυτό με float:left*/
+    
+}
+.job li{
+    margin-bottom: 5px;
+    font-size: 18px;
+      
+}
+.job p{
+    margin: 10px 0;
+    font-size: 17px;
+    line-height: 22px;
+    
+}
+.id{
+    /*δίνουμε έμφαση στο id του ακινήτου ώστε ο επισκέπτης να το διαχωρίζει εύκολα σε περίπτωση που το χρειαστεί*/ 
+    color:#0b83a0;
+    font-style:italic;
+    font-weight: bold;
+
+}
+
+/*....................................NALU BARTENDER STYLES......................................*/
+#nalu{
+    padding: 20px 20px 20px 20px;
+    margin: 70px 40px 100px 40px;
+    background-color: rgb(255, 255, 255 , 0.6);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    border-radius: 35px;
+}
+#nalu h1{
+    color:rgb(13, 68, 69,0.8);
+    font-size:40px; /*μεγαλώνουμε την επικεφαλίδα*/
+}
+#nalu b{
+    font-size:25px;
+    color:rgb(13, 68, 69,0.8);
+}
+#nalu p{
+    font-size: 20px;
+    line-height: 1.5;
+    margin-right:30px;
+    text-align: justify;/*ομοιομορφες παραγραφοι*/
+}
+#nalu ul{
+    font-size:20px;
+    list-style-type:circle;
+    margin-left: 20px;
+    padding-left: 10px;
+
+}
+#nalu ul li{
+    margin-bottom:7px; /*δημιουργεί μια απόσταση ανάμεσα στα li*/
+}
+#nalu a {
+    text-decoration: none;
+    color: #3498db;
+}
+
+#nalu a:hover {
+    text-decoration: underline;
+}
+.slider {
+    position: relative;
+    width:400px;
+    overflow: hidden;
+}
+
+.images {
+    width: 100%; 
+    transition: transform 0.5s ease;
+    display:flex;/*οι εικονες δεν εμφανιζονται όλες κατακόρυφα*/
+}
+
+.images img {
+    width: 100%;
+    height: auto;
+}
+.images input{
+    display:none; /*δεν εμφανίζονται αλλό οι κουκίδες*/
+}
+
+
+.dots {
+    display:flex;
+    margin: 5px;
+    justify-content: center;/*τοποθετούμε στο κέντρο του slider κατα μηκος του αξονα χ*/
+}
+.dots label {
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    border: solid #050505 3px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+
+.dots label:hover {
+    background-color: #070707;
+}
+
+#img1:checked ~ .i1{
+    margin-left: 0%;
+}
+#img2:checked ~ .i2{
+    margin-left: -100%;
+}
+#img3:checked ~ .i3{
+    margin-left: -200%;
+}
+.back{
+    font-size: 20px;
+    float:right; /*τοποθετείται δεξιά*/
+    margin-right:10px;
+    margin-bottom:20px; /*Για να ερθει στην ίδια ευθεία με την τελευταία παράγραφο*/
+    font-weight: bold;
+    
+}
+.nalu-footer{
+    background-color: rgb(255, 255, 255 , 0.1);
+    color:rgb(13, 68, 69,0.8);
+    font-weight: bold;
+    display:flex;
+    border-style: inset;
+    font-style: italic;
+    padding-left: 1%;
+    
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+/*....................................CONTACT US STYLES...............................*/
+
+
+.forma form{
+    background-color: #f7f7f7;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-left:2%;
+    margin-right:2%;   
+}
+
+.forma ul{
+    list-style: none;
+    padding: 0;
+    margin-left:30%;
+}
+.forma li {
+    margin: 10px 0;
+}
+.forma label{
+    font-weight: bold; 
+    display:block; 
+}
+
+.forma input[type="text"],input[type="email"],input[type="tel"],input[type="text"],textarea {
+    width: 60%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 16px;
+   
+}
+.forma textarea {
+    resize: vertical;
+
+}
+
+.forma button[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 16px;
+}
+.forma button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/*.........................................FOOTER STYLES......................................*/
+footer {
+    background-color: #0c4445;
+    color: #fff;
+    width:100%;
+    
+    
+}
+#footer-container{
+    display: flex;
+    flex-direction: row;/*τα τοποθετεί στην ίδια σειρά*/
+    align-items: center;/*τοποθετεί  κεντρο κατα μήκος του αξονα y*/
+    justify-content: center;/*τοποθετεί κέντρο κατα μήκος του αξονα x*/
+   
+}
+
+footer p {
+    font-size: 14px;
+    text-align:center;
+}
+
+#social-media {
+    margin-top: 20px;
+    margin-left:40px;
+    
+}
+
+#social-media ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+#social-media img{
+    width:30px;
+    height:30px;
+}
+.social-link {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 16px;
+    transition: color 0.3s;  
+}
+#newsletter {
+    width:500px;
+    margin-left:650px;/* το μετακινούμε προς τα δεξια από την θέση που το είχε ορίσει το justify content  του footer-container*/
+}
+#newsletter form{
+    /*τοποθετεί το κουμπί subscribe δεξιά από το πλαίσιο για να πληκτρολογήσεις το email*/
+    display:flex;
+    align-items: right;
+}
+#newsletter h3 {
+    font-size: 18px;
+    margin-bottom: 10px;/*δημιουργεί κενό μεταξύ της επικεφαλίδας και του box(enter your email)*/
+}
+
+
+#newsletter input[type="email"] {
+    padding: 10px;
+    width: 80%;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 14px;
+}
+
+#newsletter button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+#newsletter button:hover {
+    background-color: #0056b3;
+}
+/*.....................................SIGN IN STYLES ............................................*/
+#signInForm {
+    width:30%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+#signInForm h2 {
+    text-align: center;
+    color: #333;
+}
+#signInForm label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+}
+  
+#signInForm input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+  
+#signInForm button {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+}
+  
+#signInForm button:hover {
+    background-color: #45a049;
+}
+  
+#signInForm p {
+    margin-top: 15px;
+    text-align: center;
+}
+  
+#signInForm a {
+    color: #4caf50;
+    text-decoration: none;
+    font-weight: bold;
+}
+  
+#signInForm a:hover {
+    text-decoration: underline;
+}
+
+/*.....................................REGISTRATION FORM STYLES..................................*/
+#registrationForm{
+    max-width: 60%;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+#registrationForm label{
+    display:flex;
+    margin-bottom: 10px;
+    
+}
+#registrationForm fieldset {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 15px;
+
+}
+#registrationForm legend{
+    font-weight: bold;
+}
+#registrationForm input, select{
+    display:flex;
+    width:80%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid rgb(13, 12, 12);
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+#registrationForm button {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+#registrationForm button:hover {
+    background-color: #45a049;
+}
+#registrationForm input[type="radio"]{
+    width:5%;
+
+}
+.gender-group{
+    display:flex;
+    align-items: center;
+}
+
+/*.....................................RESPONSIVE DESIGN.........................................*/
+@media all and ( max-width:468px){
+	/*for mobiles*/
+    header{
+        background-image: none;
+        height:100px;
+
+    }
+    .hidden_logo{
+        display:flex;
+        height:60px;
+        width:130px;
+        margin-left:2%;
+    }
+    #menu{
+        flex-direction: column;
+        top:0;
+        position: relative;
+        
+    }
+    .main-menu{
+        display:none;
+        background-color: rgb(135, 181, 191 , 0.7);
+        flex-direction: column;
+        width:100%;
+        position:absolute;
+    }
+    .main-menu.show{
+        display:flex;
+    }
+    .main-menu img{
+        display:none;
+    }
+    #menu label{
+        display: block;
+        position:absolute;
+        cursor: pointer;
+        left:0;
+        font-size: 30px;
+    }
+    #toggle:checked + .main-menu {
+        display: flex;
+    }
+    #categories{
+        grid-template-columns:1fr;
+    }
+    .category li ,
+    .category h2{
+        line-height: normal;
+        font-size: 15px;
+    
+    }
+   .job img{
+      float:none;
+      width:80%;
+   }
+   .job ul{
+       margin-left:0;
+   }
+   #home-sales{
+      flex-direction: column;
+       grid-template-columns: 1fr;
+   }
+   .property img{
+       width:40%;
+       height:20%;
+   }
+   .property{
+       width:80%;
+   }
+   #aboutUs h1{
+    font-size:22px;
+   }
+   .forma{
+       font-size: 10px;
+       margin-right: 3%;
+
+    }
+   .forma input{
+       height:5px;
+   
+    }
+
+    .forma ul{
+        display:flex;
+        margin-inline-start: 0;
+        flex-direction: column;
+
+    }
+    .slider{
+        width:70%;
+        margin:0 auto;
+    }
+    .nalu h1,
+    .nalu p,
+    .nalu b,
+    .nalu ul{
+       font-size: medium;
+    }
+    .back{
+        float:none;
+    }
+    .nalu-footer{
+        flex-direction: column;
+    }
+    .image-container {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    }
+
+    .image-container .image-wrapper .button {
+       opacity:1;
+       top:0;
+       left:13%;
+    }
+    .image-container .image-wrapper img{
+        width: 90%;
+        height:90%;
+       
+    }
+    .banner h3{
+        font-size:medium;
+    }
+    .row-container{
+        flex-direction: column;
+        
+    
+    }
+    .img-video{
+        width:100%;
+    }
+    #footer-container{
+        flex-direction: column;
+
+    }
+    #newsletter{
+        display:none;
+
+    }
+    
+
+}
+@media all and ( max-width:1024px){
+	/*for tablet*/
+   #menu{
+    top:28%;
+   }
+   .main-menu{
+   
+    margin-left:0;
+   }
+   .main-menu li{
+    margin-right:3%;
+   }
+   .property{
+    width:90%;
+    }
+    #newsletter{
+        width: calc(100% - 500px);
+        margin-left:250px;
+        
+    }
+}
+
+
+    

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="assets/image0.png" type="image/x-icon">
+    <link rel="stylesheet" href="mystyle.css">
+    <title>Registration Form</title>
+  </head>
+
+<body>
+  <main>
+      <form id="registrationForm" action="#" method="post" onsubmit="return validateForm()">
+          <fieldset>
+            <legend>Personal Information</legend>
+            <input type="text" id="name" name="name" required autocomplete="name"  placeholder="Full name">
+            <input type="email" id="email" name="email" required autocomplete="email" placeholder="Email">
+            <input type="text" id="address" name="address" required autocomplete="address" placeholder="Address">
+            <label for="date">Date of Birth</label>
+            <input type="date" id="dob" name="dob" required >
+            <input type="tel" id="contact" name="contact" pattern="[0-9]{10}" required autocomplete="contact" placeholder="Phone Number" >
+            
+            <label for="gender">Gender</label>
+            <div class="gender-group">
+            <input type="radio" name="gender" id="other" value="other" checked>
+            <label for="Other">Other</label>
+            <input type="radio" name="gender" id="male" value="male">
+            <label for="male">Male</label>
+            <input type="radio" name="gender" id="female" value="female">
+            <label for="female">Female</label>
+            </div>
+
+          </fieldset>
+      
+          <fieldset>
+            <legend>User Identification Data</legend>
+            <input type="text" id="username" name="username" required placeholder="Username">
+            <input type="password" id="password" name="password" required placeholder="Password">
+            <input type="password" id="confirmPassword" name="confirmPassword" required placeholder="Confirm password">
+          </fieldset>
+      
+          <fieldset>
+            <legend>Communication Options</legend>
+            <label>Preferred Communication Method:</label>
+            <select id="communicationMethod" name="communicationMethod" required>
+              <option value="sms">SMS</option>
+              <option value="email">Email</option>
+              <option value="viber">Viber</option>
+              <option value="whatsapp">WhatsApp</option>
+            </select>
+          </fieldset>
+      
+          <fieldset>
+            <legend>Buying Profile Questionnaire</legend>
+            <input type="text" id="adsInterest" name="adsInterest" placeholder="Type of Ads Interested In">
+            <input type="text" id="jobProfile" name="jobProfile" placeholder="Job Profile">
+            <input type="text" id="workLocation" name="workLocation" placeholder="Areas for Professional Work">
+            <input type="text" id="LiveLocation" name="LiveLocation" placeholder="Areas for Living">
+            <input type="text" id="vehicleType" name="vehicleType" placeholder="Types of Vehicles Used">
+            <textarea id="otherInfo" name="otherInfo" rows="4" placeholder="Additional Information"></textarea>
+          </fieldset>
+      
+          <button type="submit">Sign Up</button>
+      </form> 
+      <script src="validation.js"></script>
+  </main>
+</body>
+</html> 
